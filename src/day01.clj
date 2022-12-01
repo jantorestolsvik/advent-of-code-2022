@@ -1,35 +1,22 @@
 (ns day01
   (:require
-    [clojure.edn :as edn]
-    [clojure.string :as str]))
+    [clojure.string :as str]
+    [utils :as u]))
 
 
-(defn part-1
-  [input]
-  (->> (reduce
-         (fn [list line]
-           (if (= "" line)
-             (conj list 0)
-             (conj (rest list) (+ (first list) (edn/read-string line)))))
-         [0]
-         (str/split-lines input))
-       (reduce max)))
+(defn parse-calories
+  [s]
+  (transduce (map parse-long) + (str/split-lines s)))
 
 
-(defn part-2
-  [input]
-  (->> (reduce
-         (fn [list line]
-           (if (= "" line)
-             (conj list 0)
-             (conj (rest list) (+ (first list) (edn/read-string line)))))
-         [0]
-         (str/split-lines input))
-       sort
-       reverse
-       (take 3)
+(defn solve
+  [n input]
+  (->> (u/split-blank-line input)
+       (map parse-calories)
+       (sort >)
+       (take n)
        (reduce +)))
 
 
-(day01/part-2
-  (slurp "resources/day01_data.txt"))
+(def part-1 (partial solve 1))
+(def part-2 (partial solve 3))
