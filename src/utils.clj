@@ -1,5 +1,6 @@
 (ns utils
   (:require
+    [clojure.pprint :refer [pprint]]
     [clojure.string :as str]))
 
 
@@ -10,3 +11,9 @@
   [input]
   (-> (str/replace input "\r" "")
       (str/split #"\n\n")))
+
+
+(defn pprintr
+  [data]
+  (pprint data)
+  data)
