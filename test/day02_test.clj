@@ -14,6 +14,7 @@
     15 test-data
     12586 puzzle-data))
 
+
 (t/deftest part-2-test
   (t/are [expected input] (= expected (u/pprintr (part-2 input)))
     12 test-data

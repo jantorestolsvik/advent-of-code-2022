@@ -23,6 +23,7 @@
              (= me \Y) (+ 2 0)
              (= me \Z) (+ 3 3))))))
 
+
 (defn score-round-part-2
   []
   (map (fn [[opponent _ me]]
@@ -47,6 +48,7 @@
 (defn part-1
   [input]
   (transduce (score-round-part-1) + (str/split-lines input)))
+
 
 (defn part-2
   [input]
