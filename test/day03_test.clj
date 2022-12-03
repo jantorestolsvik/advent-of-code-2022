@@ -16,5 +16,6 @@
 
 
 (t/deftest part-2-test
-  (t/is (= 2508 (part-2 puzzle-data)))
-  (t/is (= 70 (part-2 test-data))))
+  (t/are [expected input] (= expected (u/pprintr (part-2 input)))
+      70 test-data
+      2508 puzzle-data))
