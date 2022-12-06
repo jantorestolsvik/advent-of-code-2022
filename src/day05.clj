@@ -8,8 +8,9 @@
   (apply map vector matrix))
 
 
-(defn solve [lifting-strategy input]
-(let [[raw-stacks moves] (str/split input #"\n\n")
+(defn solve
+  [lifting-strategy input]
+  (let [[raw-stacks moves] (str/split input #"\n\n")
         raw-stack-without-numbers (butlast (str/split-lines raw-stacks))
         stacks (->>
                  raw-stack-without-numbers
@@ -26,13 +27,12 @@
     (->> (sort new-stacks)
          (map last)
          (map last)
-         str/join))
-)
+         str/join)))
+
 
 (defn part-1
   [input]
   (solve reverse input))
-
 
 
 (defn part-2

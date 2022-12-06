@@ -16,3 +16,8 @@ I learned about transducers, and that we create them by just calling map with 1 
 
 (map vector [1 2 3] ["a" "b" "c"]) ([1 "a"] [2 "b"] [3 "c"])
 (zipmap (iterate inc 1) ["a" "b" "c"]) {1 "a" 2 "b" 3 "c"}
+
+(->> (str "[" puzzle-data "]")
+read-string)
+
+Treats the input as a list, and reads the strings and makes tokens. 
